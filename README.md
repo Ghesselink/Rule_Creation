@@ -2,6 +2,86 @@
 graph TB;
 
     %% Class Definitions
+    classDef defaultStyle fill:#F5090D,stroke:#333,stroke-width:2px, color:white;
+    classDef highlight fill:#90EE90,stroke:#333,stroke-width:2px, color:black;
+    classDef blue fill:#004964,stroke:#333,stroke-width:2px, color:white;
+    classDef purple fill:#952DCE,stroke:#333,stroke-width:2px, color:white;
+    classDef legend fill:#D3D3D3,stroke:#333,stroke-width:2px, color:black;
+
+    %% Legend
+    L((Legend)) --> G[(General Steps)]
+    L --> B1[(Technical/Non-Rule Improvements)]
+    L --> P[(New Rule Creation)]
+    L --> H[(Finished)]
+
+    class L legend
+    class G defaultStyle
+    class B1 blue
+    class P purple
+    class H highlight
+```
+
+```mermaid
+graph TB;
+
+%% Class Definitions
+classDef defaultStyle fill:#F5090D,stroke:#333,stroke-width:2px, color:white;
+classDef highlight fill:#90EE90,stroke:#333,stroke-width:2px, color:black;
+classDef blue fill:#004964,stroke:#333,stroke-width:2px, color:white;
+classDef purple fill:#952DCE,stroke:#333,stroke-width:2px, color:white;
+classDef title fill:#FFFFFF,stroke:#FFFFFF, color:black;
+
+%% Title
+title["<b>Workflow Process</b>"]
+title -.-> A
+
+%% Main Workflow Diagram
+subgraph "<b>Steps 1 & 2</b>"
+direction TB
+A[Create a new branch] --> B[Start developing]
+end
+
+subgraph "<b>Step 3</b>"
+direction TB
+B --> Q{Determine PR type}
+Q -->|Rule-related| P1[Create rule-related PR]
+Q -->|Technical| P2[Create technical PR]
+end
+
+subgraph "<b>Steps 4 & 5</b>"
+direction TB
+P1 --> C1[Assign rule-related reviewer] --> D[Review]
+P2 --> C2[Assign member of Validation Team] --> D
+end
+
+subgraph "<b>Step 6</b>"
+direction TB
+D -- " " --> X{New technical aspect in review?}
+X -->|Yes| Y[Create new technical PR] --> C2
+D -- " " --> E[Incorporate feedback]
+X -->|No| E
+E --> D
+end
+
+subgraph "<b>Step 7</b>"
+direction TB
+E --> F[Approve and merge]
+end
+
+%% Class Assignments
+class A,B,D,Q,X,E defaultStyle
+class F highlight
+class P2,C2,Y blue
+class P1,C1 purple
+class title title
+
+```
+
+
+```mermaid
+graph TB;
+
+    %% Class Definitions
     classDef green fill:#90EE90,stroke:#333,stroke-width:2px, color:black;
     classDef red fill:#F5090D,stroke:#333,stroke-width:2px, color:white;
     classDef blue fill:#004964,stroke:#333,stroke-width:2px, color:white;
