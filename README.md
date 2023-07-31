@@ -186,6 +186,7 @@ graph TB
         subgraph General
             BB[.py format]:::blue
             BC[Use correct subfolder]:::blue
+            BCA[Documentation]:::blue
         end
         subgraph Parametisation
             BD[Reuse existing code]:::blue
@@ -233,8 +234,8 @@ graph TB
         CZ[Correct Folder]
         CX[Three 'fail' Files]
     end
-    Gherkin --- Python
-    Python --- Tests
+    Gherkin === Python
+    Python === Tests
 ```
 
 ### 2.1) Gherkin
@@ -474,7 +475,7 @@ The Python steps serve as a practical execution of the Gherkin grammar that we'v
 
 - **File format**: `.py`
 
-- Use the correct subfolder: **Location**: https://github.com/buildingSMART/ifc-gherkin-rules/tree/main/features/steps .
+- Use correct subfolder: **Location**: https://github.com/buildingSMART/ifc-gherkin-rules/tree/main/features/steps .
  
  
 
@@ -483,7 +484,11 @@ The Python code is organized into distinct subfolders, each acting as seperate p
 
 These packages are further divided into different modules. For example, 'then' houses modules like 'nesting(.py), values and relationships. It is recommended to utilize the appropriate modules when adding or modifying code. However, the procedure for segmenting code into seperate packages isn't always clear. Some may argue tha the current structure isn't optimal or that(for example), 'nesting' is a subtype of 'relationships. 
 
-Of course, feel free to add improvements on the structure. This would again be a good example of 'non-rule' pull requests. 
+Of course, feel free to add improvements on the structure. This would again be a good example of 'non-rule' pull requests
+
+- Documentation
+
+For every new function, please include some docstrings. These should comprise one or two sentences capturing your current understanding of the function. What seems clear today may not be as understandable tomorrow, or to someone else.
 
 
 ---
@@ -539,7 +544,7 @@ A good method for debugging is using Visual Studio Code, though the following sh
 ---
 - Modularity. 
 ---
-To avoid merge conflicts, it is optimal to design your code to be as loosely coupled or modular as possible. This approach makes code maintainance and understanding easier, as each module functions independently and has a specific role. It simplifies debugging, testing and reduces potential mege conflicts, as each module can be examined without affecting others.
+To avoid merge conflicts, it is optimal to design your code to be as loosely coupled or modular as possible. This approach makes code maintainance and understanding easier, as each module functions independently and has a specific role ('seperation of concerns'). It simplifies debugging, testing and reduces potential mege conflicts, as each module can be examined without affecting others. Additionaly, this also makes it easier to split pull requests into smaller, more managable chuncks.
 
 ---
 - Run local versions
