@@ -575,7 +575,7 @@ RUN python3 -m pip install 'flask>=2.3' flask-cors numpy gunicorn rq redis SQLAl
 - Set environment with ``export environment=development``
 - In the ui folder, run ``npm install``
 - Update the submodule ``git submodule init && git submodule update``
-- Run the local environment : ``npm install``
+- Run the local environment : ``npm-run-all -p start api``
 Note that the gherkin repository is one of these submodules. The flask works as a backend API for reactJS frontend. The gherkin repository is a part of this API.
 
 
